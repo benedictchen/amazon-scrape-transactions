@@ -36,9 +36,13 @@ intervalId = setInterval(() => {
         }
         let escapedDate = JSON.stringify(lastDate.replace(/["']/ig, ''));
         return Array.from(groupEl.querySelectorAll('.apx-transactions-line-item-component-container')).map(partsEl => {
-            return escapedDate + ',' + Array.from(partsEl.querySelectorAll('.a-column')).map(partEl => `"${partEl.textContent}"`).filter(v => !/Amazon.com Payments/.test(v)).filter(v => !/Pending/.test(v))
+            return escapedDate + ',' + Array.from(partsEl.querySelectorAll('.a-column'))
+                .map(partEl => `"${partEl.textContent}"`)
+                .filter(v => !/Amazon.com Payments/.test(v))
+                .filter(v => !/Pending/.test(v))
+                .concat([`"${partsEl.querySelector('a').href}"`]);
         }).join('\r\n');
-    }).filter(v => !!v).join('\r\n');
+    }).filter(v => !!v).join('\r\n') + '\r\n';
     
     console.dir('grabbing this page...', csvContent);
 
@@ -51,7 +55,7 @@ intervalId = setInterval(() => {
         // create and download CSV
         link = document.createElement('a')
         link.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(csvContent));
-        link.setAttribute('download', 'amazon-purchases.csv');
+        link.setAttribute('download', `${window.location.hostname}-purchases.csv`);
         document.body.appendChild(link);
         link.click();
         link.remove();
