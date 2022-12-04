@@ -1,4 +1,4 @@
-# amazon-scrape-transactions
+# Amazon(.com|.co.jp) Scraper for Exporting and Analysis
 Amazon transaction scraper for credit card / bank reconciliation purposes
 
 ## Instructions
