@@ -1,6 +1,14 @@
 # Amazon(.com|.co.jp) Scraper for Exporting and Analysis
 Amazon transaction scraper for credit card / bank reconciliation purposes
 
+---------
+Software development takes a LOT of time and it's never ending. 
+
+If you appreciate this work, please donate and help out any way you can to keep things like this going.
+
+If this was helpful to you, please buy me a beer on PayPal: [click here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WXQKYYKPHWXHS)
+---------
+
 ## Instructions
 - Go to Amazon (e.g. Amazon.com)
 - Go to this path: `/cpe/yourpayments/transactions/`
@@ -48,3 +56,7 @@ intervalId = setInterval(() => {
     }
 }, 2000);
 ```
+
+---------
+If this was helpful to you, please buy me a beer on PayPal: [click here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WXQKYYKPHWXHS)
+---------
