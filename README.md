@@ -7,7 +7,7 @@ Amazon transaction scraper for credit card / bank reconciliation purposes
 - Paste this in the console:
 
 
-```
+```javascript
 
 csvContent = '';
 
