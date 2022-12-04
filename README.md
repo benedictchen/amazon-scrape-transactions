@@ -36,11 +36,15 @@ intervalId = setInterval(() => {
         }
         let escapedDate = JSON.stringify(lastDate.replace(/["']/ig, ''));
         return Array.from(groupEl.querySelectorAll('.apx-transactions-line-item-component-container')).map(partsEl => {
-            return escapedDate + ',' + Array.from(partsEl.querySelectorAll('.a-column'))
+            const parts = Array.from(partsEl.querySelectorAll('.a-column'))
                 .map(partEl => `"${partEl.textContent}"`)
                 .filter(v => !/Amazon.com Payments/.test(v))
-                .filter(v => !/Pending/.test(v))
-                .concat([`"${partsEl.querySelector('a').href}"`]);
+                .filter(v => !/Pending/.test(v));
+            return escapedDate + ',' + parts
+                .concat([
+                  parts.length >= 4 ? null : " ",
+                  `"${partsEl.querySelector('a').href}"`
+                ].filter(v => !!v));
         }).join('\r\n');
     }).filter(v => !!v).join('\r\n') + '\r\n';
     
