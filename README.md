@@ -4,6 +4,8 @@ Amazon transaction scraper for credit card / bank reconciliation purposes
 ## Instructions
 - Go to Amazon (e.g. Amazon.com)
 - Go to this path: `/cpe/yourpayments/transactions/`
+- For Google Chrome: 
+  - Right click and choose "Inspect"
 - Paste this in the console:
 
 
